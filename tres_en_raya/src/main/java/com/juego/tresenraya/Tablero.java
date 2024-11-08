@@ -1,5 +1,7 @@
 package com.juego.tresenraya;
 
+import javax.swing.JOptionPane;
+
 class Tablero {
     // Constantes que tendrán los jugadores
     private static final int VACIO = 0; // No está el hueco seleccionado
@@ -19,7 +21,7 @@ class Tablero {
         return tablero;
     }
 
-    public synchronized boolean jugada(int fila, int columna) {
+    public synchronized boolean cambiarJugada(int fila, int columna) {
         boolean jugadaValida = true;
         if (partidaTerminada || tablero[fila][columna] != VACIO) {
             jugadaValida = false; // En el caso de que la partida haya terminado o haya un hueco ocupado
@@ -29,8 +31,15 @@ class Tablero {
         tablero[fila][columna] = turnoActual;
 
         // Comprobamos si se ha terminado la partida
-        partidaTerminada = comprobarVictoria(turnoActual);
+        if (comprobarVictoria(turnoActual)) {
+            JOptionPane.showMessageDialog(null, "Ha ganado el jugador " + turnoActual);
+            partidaTerminada = true;
+        }
+        if (comprobarEmpate()) {
 
+            JOptionPane.showMessageDialog(null, "EMPATE");
+            partidaTerminada = true;
+        }
         // Cambiar de turno
         if (!(turnoActual == JUGADOR1))
             turnoActual = JUGADOR1;
@@ -64,4 +73,21 @@ class Tablero {
         return victoria;
     }
 
+    public boolean comprobarEmpate() {
+        boolean empate = true;
+
+        // Bucle creado para recorrer el tablero
+        // Se comprobará que todos los huecos están ocupados y que no se ha ganado
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] == VACIO)
+                    empate = false;
+            }
+        }
+        return empate;
+    }
+
+    public boolean isPartidaTerminada() {
+        return partidaTerminada;
+    }
 }
