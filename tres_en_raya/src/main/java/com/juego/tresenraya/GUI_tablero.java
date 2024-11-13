@@ -37,35 +37,69 @@ public class GUI_tablero extends javax.swing.JFrame {
         Casilla7 = new javax.swing.JButton();
         Casilla8 = new javax.swing.JButton();
         Casilla9 = new javax.swing.JButton();
+        panelDatos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelTabla.setBackground(new java.awt.Color(153, 204, 255));
-        panelTabla.setLayout(new java.awt.GridLayout(3, 3));
+        jPanel1.setBackground(new java.awt.Color(69, 147, 108));
 
+        panelTabla.setBackground(new java.awt.Color(0, 0, 0));
+        panelTabla.setLayout(new java.awt.GridLayout(3, 3, 3, 3));
+
+        Casilla1.setBackground(new java.awt.Color(154, 204, 119));
         Casilla1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Casilla1ActionPerformed(evt);
             }
         });
         panelTabla.add(Casilla1);
+
+        Casilla2.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla2);
+
+        Casilla3.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla3);
+
+        Casilla4.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla4);
+
+        Casilla5.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla5);
+
+        Casilla6.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla6);
+
+        Casilla7.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla7);
+
+        Casilla8.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla8);
+
+        Casilla9.setBackground(new java.awt.Color(154, 204, 119));
         panelTabla.add(Casilla9);
+
+        panelDatos.setBackground(new java.awt.Color(51, 79, 83));
+
+        javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
+        panelDatos.setLayout(panelDatosLayout);
+        panelDatosLayout.setHorizontalGroup(
+            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 326, Short.MAX_VALUE)
+        );
+        panelDatosLayout.setVerticalGroup(
+            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(398, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(panelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,6 +107,7 @@ public class GUI_tablero extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(63, Short.MAX_VALUE))
+            .addComponent(panelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,6 +174,7 @@ public class GUI_tablero extends javax.swing.JFrame {
     private javax.swing.JButton Casilla8;
     private javax.swing.JButton Casilla9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelDatos;
     private javax.swing.JPanel panelTabla;
     // End of variables declaration//GEN-END:variables
 }
