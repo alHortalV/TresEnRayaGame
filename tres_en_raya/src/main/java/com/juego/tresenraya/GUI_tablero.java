@@ -38,13 +38,17 @@ public class GUI_tablero extends javax.swing.JFrame {
         Casilla8 = new javax.swing.JButton();
         Casilla9 = new javax.swing.JButton();
         panelDatos = new javax.swing.JPanel();
+        tituloAplicacion = new javax.swing.JLabel();
+        textoTurno = new javax.swing.JLabel();
+        textoTurnoJugador = new javax.swing.JLabel();
+        logoZaidin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(69, 147, 108));
 
         panelTabla.setBackground(new java.awt.Color(0, 0, 0));
-        panelTabla.setLayout(new java.awt.GridLayout(3, 3, 3, 3));
+        panelTabla.setLayout(new java.awt.GridLayout(3, 3));
 
         Casilla1.setBackground(new java.awt.Color(154, 204, 119));
         Casilla1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,40 +59,120 @@ public class GUI_tablero extends javax.swing.JFrame {
         panelTabla.add(Casilla1);
 
         Casilla2.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla2ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla2);
 
         Casilla3.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla3ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla3);
 
         Casilla4.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla4ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla4);
 
         Casilla5.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla5ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla5);
 
         Casilla6.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla6ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla6);
 
         Casilla7.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla7ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla7);
 
         Casilla8.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla8ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla8);
 
         Casilla9.setBackground(new java.awt.Color(154, 204, 119));
+        Casilla9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Casilla9ActionPerformed(evt);
+            }
+        });
         panelTabla.add(Casilla9);
 
         panelDatos.setBackground(new java.awt.Color(51, 79, 83));
+
+        tituloAplicacion.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        tituloAplicacion.setForeground(new java.awt.Color(255, 255, 255));
+        tituloAplicacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloAplicacion.setText("TRES EN RAYA");
+
+        textoTurno.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        textoTurno.setForeground(new java.awt.Color(255, 255, 255));
+        textoTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoTurno.setText("Es el turno de : ");
+        textoTurno.setIconTextGap(0);
+
+        textoTurnoJugador.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        textoTurnoJugador.setForeground(new java.awt.Color(255, 255, 255));
+        textoTurnoJugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textoTurnoJugador.setText("X");
+
+        logoZaidin.setIcon(new javax.swing.ImageIcon("C:\\Users\\leona\\Documents\\NetBeansProjects\\Procesos_Hilos\\JuegoTresEnRaya-main\\TresEnRayaGame\\tres_en_raya\\src\\main\\recursos\\imgs\\ieszaidin.png")); // NOI18N
 
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
         panelDatosLayout.setHorizontalGroup(
             panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 326, Short.MAX_VALUE)
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tituloAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                        .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                        .addComponent(logoZaidin)
+                        .addGap(41, 41, 41))))
         );
         panelDatosLayout.setVerticalGroup(
             panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(tituloAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logoZaidin)
+                .addGap(41, 41, 41)
+                .addComponent(textoTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -98,7 +182,7 @@ public class GUI_tablero extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(panelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,7 +190,7 @@ public class GUI_tablero extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
             .addComponent(panelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -127,6 +211,38 @@ public class GUI_tablero extends javax.swing.JFrame {
     private void Casilla1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Casilla1ActionPerformed
+
+    private void Casilla2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla2ActionPerformed
+
+    private void Casilla3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla3ActionPerformed
+
+    private void Casilla4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla4ActionPerformed
+
+    private void Casilla5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla5ActionPerformed
+
+    private void Casilla6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla6ActionPerformed
+
+    private void Casilla7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla7ActionPerformed
+
+    private void Casilla8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla8ActionPerformed
+
+    private void Casilla9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Casilla9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Casilla9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,7 +290,11 @@ public class GUI_tablero extends javax.swing.JFrame {
     private javax.swing.JButton Casilla8;
     private javax.swing.JButton Casilla9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logoZaidin;
     private javax.swing.JPanel panelDatos;
     private javax.swing.JPanel panelTabla;
+    private javax.swing.JLabel textoTurno;
+    private javax.swing.JLabel textoTurnoJugador;
+    private javax.swing.JLabel tituloAplicacion;
     // End of variables declaration//GEN-END:variables
 }
