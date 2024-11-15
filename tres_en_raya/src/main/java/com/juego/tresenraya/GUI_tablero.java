@@ -141,7 +141,7 @@ public class GUI_tablero extends javax.swing.JFrame {
         textoTurnoJugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoTurnoJugador.setText("X");
 
-        logoZaidin.setIcon(new javax.swing.ImageIcon("C:\\Users\\leona\\Documents\\NetBeansProjects\\Procesos_Hilos\\JuegoTresEnRaya-main\\TresEnRayaGame\\tres_en_raya\\src\\main\\recursos\\imgs\\ieszaidin.png")); // NOI18N
+        logoZaidin.setIcon(new javax.swing.ImageIcon("src\\main\\recursos\\imgs\\ieszaidin.png")); // NOI18N
 
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
