@@ -80,8 +80,7 @@ public class Tablero {
         // Se hará un bucle para comprobar las posibles formas de ganar
         for (int i = 0; i < 3; i++) {
             // Filas
-            if (tablero.get(i * 3) == jugador && tablero.get(i * 3 + 1) == jugador
-                    && tablero.get(i * 3 + 2) == jugador) {
+            if (tablero.get(i * 3) == jugador && tablero.get(i * 3 + 1) == jugador && tablero.get(i * 3 + 2) == jugador) {
                 victoria = true;
             }
             // Columnas
@@ -99,6 +98,20 @@ public class Tablero {
         }
 
         return victoria;
+    }
+
+    public boolean comprobarEmpate() {
+        boolean empate = true;
+
+        // Bucle creado para recorrer el tablero
+        // Se comprobará que todos los huecos están ocupados y que no se ha ganado
+        for (int i = 0; i < 9; i++) {
+            if (tablero.get(i) == VACIO) {
+                empate = false; // Si hay al menos un hueco vacío, no hay empate
+                break; // No es necesario seguir buscando
+            }
+        }
+        return empate && !partidaTerminada; // Debe ser empate y la partida no debe haber terminado
     }
 
     public boolean isPartidaTerminada() {
