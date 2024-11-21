@@ -6,11 +6,10 @@ import java.util.concurrent.locks.Condition;
 import javax.swing.JOptionPane;
 
 public class Tablero {
-    private static final int VACIO = 0; // No está el hueco seleccionado
+    private static final int VACIO = 0; // Huecos del tablero
     private static final int JUGADOR1 = 1; // X
     private static final int JUGADOR2 = 2; // O
 
-    // Usamos AtomicReferenceArray para la referencia atómica
     private AtomicReferenceArray<Integer> tablero; // Tablero de 3x3
     private int turnoActual; // Para ver a qué jugador le toca
     private boolean partidaTerminada; // Para comprobar si la partida ha terminado
@@ -20,8 +19,8 @@ public class Tablero {
 
     // Constructor
     public Tablero() {
-        // Inicializamos el tablero con valores VACIOS
-        this.tablero = new AtomicReferenceArray<>(new Integer[9]); // 3x3 = 9 posiciones
+        // Inicializamos el tablero con el valor VACIO
+        this.tablero = new AtomicReferenceArray<>(new Integer[9]); // 3x3
         for (int i = 0; i < 9; i++) {
             tablero.set(i, VACIO);
         }
@@ -41,7 +40,7 @@ public class Tablero {
             }
 
             boolean jugadaValida = true;
-            int index = fila * 3 + columna; // Convertir coordenadas 2D a 1D
+            int index = fila * 3 + columna; // Convertir coordenadas 2D a 1D para comprobar si la partida ha terminado
             if (partidaTerminada || tablero.get(index) != VACIO) {
                 jugadaValida = false; // En el caso de que la partida haya terminado o haya un hueco ocupado
             }
