@@ -1,91 +1,81 @@
 package com.juego.tresenraya;
 
+import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Condition;
 import javax.swing.JOptionPane;
 
-class Tablero {
-    // Constantes que tendrán los jugadores
+public class Tablero {
     private static final int VACIO = 0; // No está el hueco seleccionado
     private static final int JUGADOR1 = 1; // X
     private static final int JUGADOR2 = 2; // O
 
-    // Tablero
-    private int[][] tablero; // Consta de 3 filas y 3 columnas
-    private int turnoActual; // Para ver a que jugador le toca
+    // Usamos AtomicReferenceArray para la referencia atómica
+    private AtomicReferenceArray<Integer> tablero; // Tablero de 3x3
+    private int turnoActual; // Para ver a qué jugador le toca
     private boolean partidaTerminada; // Para comprobar si la partida ha terminado
 
-    public int getTurnoActual() {
-        return turnoActual;
+    private final ReentrantLock lock; // Bloqueo para sincronización
+    private final Condition esperaTurno; // Condición para esperar el turno
+
+    // Constructor
+    public Tablero() {
+        // Inicializamos el tablero con valores VACIOS
+        this.tablero = new AtomicReferenceArray<>(new Integer[9]); // 3x3 = 9 posiciones
+        for (int i = 0; i < 9; i++) {
+            tablero.set(i, VACIO);
+        }
+        this.turnoActual = JUGADOR1; // Empieza el jugador 1
+        this.partidaTerminada = false;
+        this.lock = new ReentrantLock(); // Inicializamos el ReentrantLock
+        this.esperaTurno = lock.newCondition(); // Creamos la condición de espera
     }
 
-    public int[][] getTablero() {
-        return tablero;
-    }
+    public boolean cambiarJugada(int fila, int columna, int jugador) {
+        lock.lock(); // Bloqueamos el acceso concurrente
 
-    public synchronized boolean cambiarJugada(int fila, int columna) {
-        boolean jugadaValida = true;
-        if (partidaTerminada || tablero[fila][columna] != VACIO) {
-            jugadaValida = false; // En el caso de que la partida haya terminado o haya un hueco ocupado
-        }
-
-        // Actualizamos el tablero con el turno del jugador
-        tablero[fila][columna] = turnoActual;
-
-        // Comprobamos si se ha terminado la partida
-        if (comprobarVictoria(turnoActual)) {
-            JOptionPane.showMessageDialog(null, "Ha ganado el jugador " + turnoActual);
-            partidaTerminada = true;
-        }
-        if (comprobarEmpate()) {
-
-            JOptionPane.showMessageDialog(null, "EMPATE");
-            partidaTerminada = true;
-        }
-        // Cambiar de turno
-        if (!(turnoActual == JUGADOR1))
-            turnoActual = JUGADOR1;
-        turnoActual = JUGADOR2;
-
-        return jugadaValida; // Devolvemos si la jugada ha sido válida o no
-    }
-
-    public boolean comprobarVictoria(int jugador) {
-        boolean victoria = false;
-        // Se hará un bucle para comprobar las posibles formas de ganar
-        for (int i = 0; i < 3; i++) {
-            // Filas
-            if (tablero[i][0] == jugador && tablero[i][1] == jugador && tablero[i][2] == jugador) {
-                victoria = true;
+        try {
+            // Aseguramos que solo el jugador correspondiente haga su jugada
+            while (turnoActual != jugador) {
+                esperaTurno.await(); // Si no es su turno, el hilo se bloquea aquí
             }
-            // Columnas
-            if (tablero[0][i] == jugador && tablero[1][i] == jugador && tablero[2][i] == jugador) {
-                victoria = true;
+
+            boolean jugadaValida = true;
+            int index = fila * 3 + columna; // Convertir coordenadas 2D a 1D
+            if (partidaTerminada || tablero.get(index) != VACIO) {
+                jugadaValida = false; // En el caso de que la partida haya terminado o haya un hueco ocupado
             }
-        }
 
-        // Diagonales
-        if (tablero[0][0] == jugador && tablero[1][1] == jugador && tablero[2][2] == jugador) {
-            victoria = true;
-        }
-        if (tablero[0][2] == jugador && tablero[1][1] == jugador && tablero[2][0] == jugador) {
-            victoria = true;
-        }
+            // Actualizamos el tablero con el turno del jugador
+            if (jugadaValida) {
+                tablero.set(index, jugador); // Usamos AtomicReferenceArray para establecer el valor
 
-        return victoria;
+                // Comprobamos si se ha terminado la partida
+                if (comprobarVictoria(jugador)) {
+                    JOptionPane.showMessageDialog(null, "Ha ganado el jugador " + jugador);
+                    partidaTerminada = true;
+                }
+
+                if (comprobarEmpate()) {
+                    JOptionPane.showMessageDialog(null, "EMPATE");
+                    partidaTerminada = true;
+                }
+
+                // Cambiar de turno
+                turnoActual = (turnoActual == JUGADOR1) ? JUGADOR2 : JUGADOR1;
+                esperaTurno.signalAll(); // Despertamos al otro jugador (para que juegue)
+            }
+
+            return jugadaValida; // Devolvemos si la jugada ha sido válida o no
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restaurar el estado de la interrupción
+            return false;
+        } finally {
+            lock.unlock(); // Desbloqueamos para que otro hilo pueda acceder
+        }
     }
 
-    public boolean comprobarEmpate() {
-        boolean empate = true;
-
-        // Bucle creado para recorrer el tablero
-        // Se comprobará que todos los huecos están ocupados y que no se ha ganado
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (tablero[i][j] == VACIO)
-                    empate = false;
-            }
-        }
-        return empate;
-    }
+   
 
     public boolean isPartidaTerminada() {
         return partidaTerminada;
