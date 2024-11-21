@@ -75,7 +75,31 @@ public class Tablero {
         }
     }
 
-   
+    public boolean comprobarVictoria(int jugador) {
+        boolean victoria = false;
+        // Se hará un bucle para comprobar las posibles formas de ganar
+        for (int i = 0; i < 3; i++) {
+            // Filas
+            if (tablero.get(i * 3) == jugador && tablero.get(i * 3 + 1) == jugador
+                    && tablero.get(i * 3 + 2) == jugador) {
+                victoria = true;
+            }
+            // Columnas
+            if (tablero.get(0 + i) == jugador && tablero.get(3 + i) == jugador && tablero.get(6 + i) == jugador) {
+                victoria = true;
+            }
+        }
+
+        // Diagonales
+        if (tablero.get(0) == jugador && tablero.get(4) == jugador && tablero.get(8) == jugador) {
+            victoria = true;
+        }
+        if (tablero.get(2) == jugador && tablero.get(4) == jugador && tablero.get(6) == jugador) {
+            victoria = true;
+        }
+
+        return victoria;
+    }
 
     public boolean isPartidaTerminada() {
         return partidaTerminada;
