@@ -14,8 +14,21 @@ public class Tablero {
     private static final int JUGADOR1 = 1; // X
     private static final int JUGADOR2 = 2; // O
 
+    public static int getJugador1() {
+        return JUGADOR1;
+    }
+
+    public static int getJugador2() {
+        return JUGADOR2;
+    }
+
+    public int getTurnoActual() {
+        return turnoActual;
+    }
+
     private AtomicReferenceArray<Integer> tablero; // Tablero de 3x3
     private int turnoActual; // Para ver a qué jugador le toca
+
     private boolean partidaTerminada; // Para comprobar si la partida ha terminado
 
     private final ReentrantLock lock; // Bloqueo para sincronización
@@ -65,7 +78,7 @@ public class Tablero {
                 }
 
                 // Cambiar de turno
-                turnoActual = (turnoActual == JUGADOR1) ? JUGADOR2 : JUGADOR1;
+                turnoActual = (turnoActual == JUGADOR1) ? JUGADOR1 : JUGADOR2;
                 esperaTurno.signalAll(); // Despertamos al otro jugador (para que juegue)
             }
 
@@ -121,4 +134,5 @@ public class Tablero {
     public boolean isPartidaTerminada() {
         return partidaTerminada;
     }
+
 }

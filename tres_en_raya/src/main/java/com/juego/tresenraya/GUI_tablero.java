@@ -9,7 +9,7 @@ package com.juego.tresenraya;
  * @author leona
  */
 public class GUI_tablero extends javax.swing.JFrame {
-
+    static Tablero tablero = new Tablero(); // Inicializamos el tablero
     /**
      * Creates new form GUI_tablero
      */
@@ -224,41 +224,50 @@ public class GUI_tablero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Casilla1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla1ActionPerformed
+    private void Casilla1ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
 
-    private void Casilla2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla2ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla2ActionPerformed
+    private void Casilla2ActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
-    private void Casilla3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla3ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla3ActionPerformed
+    private void Casilla3ActionPerformed(java.awt.event.ActionEvent evt) {
+      
+    }
 
-    private void Casilla4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla4ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla4ActionPerformed
+    private void Casilla4ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
 
-    private void Casilla5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla5ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla5ActionPerformed
+    private void Casilla5ActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
-    private void Casilla6ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla6ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla6ActionPerformed
+    private void Casilla6ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
 
-    private void Casilla7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla7ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla7ActionPerformed
+    private void Casilla7ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
 
-    private void Casilla8ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla8ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla8ActionPerformed
+    private void Casilla8ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
 
-    private void Casilla9ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Casilla9ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_Casilla9ActionPerformed
+    private void Casilla9ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
+
+    private int turnoJugador() {
+        return (tablero.getTurnoActual() == Tablero.getJugador1()) ? Tablero.getJugador1() : Tablero.getJugador2();
+    }
+
+    private void actualizarCelda(int index, javax.swing.JButton boton) {
+        String simbolo = (tablero.getTurnoActual() == Tablero.getJugador1()) ? "X" : "O";
+        boton.setText(simbolo);
+    }
 
     /**
      * @param args the command line arguments
