@@ -1,5 +1,9 @@
 package com.juego.tresenraya;
 
+/**
+ *
+ * @author alejandro
+ */
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Condition;
@@ -79,7 +83,8 @@ public class Tablero {
         // Se hará un bucle para comprobar las posibles formas de ganar
         for (int i = 0; i < 3; i++) {
             // Filas
-            if (tablero.get(i * 3) == jugador && tablero.get(i * 3 + 1) == jugador && tablero.get(i * 3 + 2) == jugador) {
+            if (tablero.get(i * 3) == jugador && tablero.get(i * 3 + 1) == jugador
+                    && tablero.get(i * 3 + 2) == jugador) {
                 victoria = true;
             }
             // Columnas

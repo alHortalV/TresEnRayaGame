@@ -1,5 +1,9 @@
 package com.juego.tresenraya;
 
+/**
+ *
+ * @author alejandro
+ */
 public class Jugador extends Thread {
     private final String simbolo;
     private Tablero tablero;
