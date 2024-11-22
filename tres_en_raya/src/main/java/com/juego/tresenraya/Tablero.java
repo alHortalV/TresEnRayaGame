@@ -78,7 +78,7 @@ public class Tablero {
                 }
 
                 // Cambiar de turno
-                turnoActual = (turnoActual == JUGADOR1) ? JUGADOR1 : JUGADOR2;
+                turnoActual = (turnoActual == JUGADOR1) ? JUGADOR2 : JUGADOR1;
                 esperaTurno.signalAll(); // Despertamos al otro jugador (para que juegue)
             }
 

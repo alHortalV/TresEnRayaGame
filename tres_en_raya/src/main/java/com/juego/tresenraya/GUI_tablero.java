@@ -225,15 +225,15 @@ public class GUI_tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Casilla1ActionPerformed(java.awt.event.ActionEvent evt) {
-       
-    }
-
-    private void Casilla2ActionPerformed(java.awt.event.ActionEvent evt) {
         
     }
 
+    private void Casilla2ActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
+
     private void Casilla3ActionPerformed(java.awt.event.ActionEvent evt) {
-      
+        
     }
 
     private void Casilla4ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,11 +249,11 @@ public class GUI_tablero extends javax.swing.JFrame {
     }
 
     private void Casilla7ActionPerformed(java.awt.event.ActionEvent evt) {
-       
+        
     }
 
     private void Casilla8ActionPerformed(java.awt.event.ActionEvent evt) {
-       
+        
     }
 
     private void Casilla9ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,9 +265,16 @@ public class GUI_tablero extends javax.swing.JFrame {
     }
 
     private void actualizarCelda(int index, javax.swing.JButton boton) {
-        String simbolo = (tablero.getTurnoActual() == Tablero.getJugador1()) ? "X" : "O";
-        boton.setText(simbolo);
+        String simbolo = (tablero.getTurnoActual() == Tablero.getJugador1()) ? "O" : "X";
+        boton.setText(simbolo); // Establece el símbolo en el botón
+
+        if (tablero.getTurnoActual() == Tablero.getJugador1()) {
+            textoTurnoJugador.setText("X");
+        } else {
+            textoTurnoJugador.setText("O");
+        }
     }
+
 
     /**
      * @param args the command line arguments
