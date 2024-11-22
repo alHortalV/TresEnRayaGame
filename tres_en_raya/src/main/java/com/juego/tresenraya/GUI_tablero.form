@@ -255,11 +255,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="logoZaidin">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\leona\Documents\NetBeansProjects\Procesos_Hilos\JuegoTresEnRaya-main\TresEnRayaGame\tres_en_raya\src\main\recursos\imgs\ieszaidin.png"/>
-                </Property>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

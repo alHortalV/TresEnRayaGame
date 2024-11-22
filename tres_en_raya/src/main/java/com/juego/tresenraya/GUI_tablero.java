@@ -9,7 +9,9 @@ package com.juego.tresenraya;
  * @author leona
  */
 public class GUI_tablero extends javax.swing.JFrame {
+
     static Tablero tablero = new Tablero(); // Inicializamos el tablero
+
     /**
      * Creates new form GUI_tablero
      */
@@ -225,39 +227,66 @@ public class GUI_tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Casilla1ActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(0,
+                0, turnoJugador())) {
+            actualizarCelda(0, Casilla1);
+        }
     }
 
     private void Casilla2ActionPerformed(java.awt.event.ActionEvent evt) {
-       
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(0,
+                1, turnoJugador())) {
+            actualizarCelda(1, Casilla2);
+        }
     }
 
     private void Casilla3ActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(0,
+                2, turnoJugador())) {
+            actualizarCelda(2, Casilla3);
+        }
     }
 
     private void Casilla4ActionPerformed(java.awt.event.ActionEvent evt) {
-       
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(1,
+                0, turnoJugador())) {
+            actualizarCelda(3, Casilla4);
+        }
     }
 
     private void Casilla5ActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(1,
+                1, turnoJugador())) {
+            actualizarCelda(4, Casilla5);
+        }
     }
 
     private void Casilla6ActionPerformed(java.awt.event.ActionEvent evt) {
-       
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(1,
+                2, turnoJugador())) {
+            actualizarCelda(5, Casilla6);
+        }
     }
 
     private void Casilla7ActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(2,
+                0, turnoJugador())) {
+            actualizarCelda(6, Casilla7);
+        }
     }
 
     private void Casilla8ActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(2,
+                1, turnoJugador())) {
+            actualizarCelda(7, Casilla8);
+        }
     }
 
     private void Casilla9ActionPerformed(java.awt.event.ActionEvent evt) {
-       
+        if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(2,
+                2, turnoJugador())) {
+            actualizarCelda(8, Casilla9);
+        }
     }
 
     private int turnoJugador() {
@@ -274,7 +303,6 @@ public class GUI_tablero extends javax.swing.JFrame {
             textoTurnoJugador.setText("O");
         }
     }
-
 
     /**
      * @param args the command line arguments
