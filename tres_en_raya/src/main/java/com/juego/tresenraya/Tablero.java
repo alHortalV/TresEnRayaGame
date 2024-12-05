@@ -134,5 +134,15 @@ public class Tablero {
     public boolean isPartidaTerminada() {
         return partidaTerminada;
     }
-
+    
+    public void reiniciarPartida() {
+        // Reinicia el tablero
+        for (int i = 0; i < 9; i++) {
+            tablero.set(i, VACIO);
+        }
+        // Reinicia el turno
+        turnoActual = JUGADOR1; // Empieza el jugador 1
+        // Reinicia el estado de la partida
+        partidaTerminada = false;
+    }
 }
