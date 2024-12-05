@@ -13,6 +13,8 @@ public class Tablero {
     private static final int VACIO = 0; // Huecos del tablero
     private static final int JUGADOR1 = 1; // X
     private static final int JUGADOR2 = 2; // O
+    private int victoriasJugador1 = 0;
+    private int victoriasJugador2 = 0;
 
     public static int getJugador1() {
         return JUGADOR1;
@@ -24,6 +26,14 @@ public class Tablero {
 
     public int getTurnoActual() {
         return turnoActual;
+    }
+
+    public int getVictoriasJugador1() {
+        return victoriasJugador1;
+    }
+
+    public int getVictoriasJugador2() {
+        return victoriasJugador2;
     }
 
     private AtomicReferenceArray<Integer> tablero; // Tablero de 3x3
@@ -134,7 +144,7 @@ public class Tablero {
     public boolean isPartidaTerminada() {
         return partidaTerminada;
     }
-    
+
     public void reiniciarPartida() {
         // Reinicia el tablero
         for (int i = 0; i < 9; i++) {
@@ -145,4 +155,14 @@ public class Tablero {
         // Reinicia el estado de la partida
         partidaTerminada = false;
     }
+
+    // Método para actualizar el contador de victorias
+    public void incrementarVictoria(int jugador) {
+        if (jugador == JUGADOR1) {
+            victoriasJugador1++;
+        } else if (jugador == JUGADOR2) {
+            victoriasJugador2++;
+        }
+    }
+
 }
