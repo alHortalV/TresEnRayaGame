@@ -143,8 +143,9 @@ public class GUI_tablero extends javax.swing.JFrame {
         textoTurnoJugador.setForeground(new java.awt.Color(255, 255, 255));
         textoTurnoJugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoTurnoJugador.setText("X");
+        
 
-        logoZaidin.setIcon(new javax.swing.ImageIcon("tres_en_raya\\src\\main\\recursos\\imgs\\ieszaidin.png")); // NOI18N
+        logoZaidin.setIcon(new javax.swing.ImageIcon("src\\main\\recursos\\imgs\\ieszaidin.png")); // NOI18N
 
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
@@ -295,8 +296,8 @@ public class GUI_tablero extends javax.swing.JFrame {
 
     private void actualizarCelda(int index, javax.swing.JButton boton) {
         String simbolo = (tablero.getTurnoActual() == Tablero.getJugador1()) ? "O" : "X";
+        boton.setFont(new java.awt.Font("Segoe UI", 3, 24));
         boton.setText(simbolo); // Establece el símbolo en el botón
-
         if (tablero.getTurnoActual() == Tablero.getJugador1()) {
             textoTurnoJugador.setText("X");
         } else {
