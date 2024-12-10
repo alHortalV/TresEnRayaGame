@@ -4,6 +4,9 @@ package com.juego.tresenraya;
  *
  * @author alejandro
  */
+import java.io.File;
+import java.io.FileWriter;
+import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Condition;
@@ -79,6 +82,17 @@ public class Tablero {
                 // Comprobamos si se ha terminado la partida
                 if (comprobarVictoria(jugador)) {
                     JOptionPane.showMessageDialog(null, "Ha ganado el jugador " + jugador);
+                    try {
+                        LocalDateTime fechaHora = LocalDateTime.now();
+                        File archivo = new File("Victorias.txt");
+                        FileWriter escribir = new FileWriter(archivo, true);
+                        escribir.write(fechaHora.toString()+ "\n");
+                        escribir.write("Victoria del jugador " + jugador + "\n");
+                        escribir.close();
+                        incrementarVictoria(jugador);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
                     partidaTerminada = true;
                 }
 

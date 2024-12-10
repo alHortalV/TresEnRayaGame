@@ -4,6 +4,12 @@
  */
 package com.juego.tresenraya;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author leona
@@ -18,6 +24,12 @@ public class GUI_tablero extends javax.swing.JFrame {
     public GUI_tablero() {
         initComponents();
         crearJugadores();
+        addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e){
+                añadirVictorias();
+            }
+        });
     }
 
     /**
@@ -45,7 +57,7 @@ public class GUI_tablero extends javax.swing.JFrame {
         textoTurno = new javax.swing.JLabel();
         textoTurnoJugador = new javax.swing.JLabel();
         logoZaidin = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jBReiniciarTablero = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -145,10 +157,10 @@ public class GUI_tablero extends javax.swing.JFrame {
         textoTurnoJugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoTurnoJugador.setText("X");
 
-        jButton1.setText("botonReiniciar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBReiniciarTablero.setText("Reiniciar Tablero");
+        jBReiniciarTablero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBReiniciarTableroActionPerformed(evt);
             }
         });
 
@@ -172,7 +184,7 @@ public class GUI_tablero extends javax.swing.JFrame {
                         .addGap(113, 113, 113))))
             .addGroup(panelDatosLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addComponent(jButton1)
+                .addComponent(jBReiniciarTablero)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelDatosLayout.setVerticalGroup(
@@ -187,7 +199,7 @@ public class GUI_tablero extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(155, 155, 155)
-                .addComponent(jButton1)
+                .addComponent(jBReiniciarTablero)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -224,9 +236,18 @@ public class GUI_tablero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jBReiniciarTableroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBReiniciarTableroActionPerformed
+        Casilla1.setText("");
+        Casilla2.setText("");
+        Casilla3.setText("");
+        Casilla4.setText("");
+        Casilla5.setText("");
+        Casilla6.setText("");
+        Casilla7.setText("");
+        Casilla8.setText("");
+        Casilla9.setText("");
+        tablero.reiniciarPartida();
+    }//GEN-LAST:event_jBReiniciarTableroActionPerformed
 
     private void Casilla1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (!tablero.isPartidaTerminada() && tablero.cambiarJugada(0,
@@ -348,6 +369,7 @@ public class GUI_tablero extends javax.swing.JFrame {
                 new GUI_tablero().setVisible(true);
             }
         });
+        
     }
 
     public void crearJugadores() {
@@ -356,6 +378,18 @@ public class GUI_tablero extends javax.swing.JFrame {
         // Iniciamos ambos hilos
         jugador1.start();
         jugador2.start();
+    }
+    
+    public void añadirVictorias(){
+        try {
+            File archivo = new File("Victorias.txt");
+            FileWriter escribir = new FileWriter(archivo, true);
+            escribir.write("VictoriasJugador1: " + tablero.getVictoriasJugador1() + "\n");
+            escribir.write("VictoriasJugador2: " + tablero.getVictoriasJugador2() + "\n");
+            escribir.write("------------------------\n");
+            escribir.close();
+        } catch (IOException e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -368,7 +402,7 @@ public class GUI_tablero extends javax.swing.JFrame {
     private javax.swing.JButton Casilla7;
     private javax.swing.JButton Casilla8;
     private javax.swing.JButton Casilla9;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBReiniciarTablero;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logoZaidin;
     private javax.swing.JPanel panelDatos;
