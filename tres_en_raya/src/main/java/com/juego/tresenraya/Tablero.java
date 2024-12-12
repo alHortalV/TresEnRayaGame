@@ -159,10 +159,11 @@ public class Tablero {
         return partidaTerminada;
     }
 
-    public void reiniciarPartida() {
+    public void reiniciarPartida(javax.swing.JButton[] botones) {
         // Reinicia el tablero
         for (int i = 0; i < 9; i++) {
             tablero.set(i, VACIO);
+            botones[i].setText("");
         }
         // Reinicia el turno
         turnoActual = JUGADOR1; // Empieza el jugador 1

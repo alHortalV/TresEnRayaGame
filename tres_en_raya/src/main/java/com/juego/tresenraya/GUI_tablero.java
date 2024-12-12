@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author leona
@@ -254,16 +256,10 @@ public class GUI_tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBReiniciarTableroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBReiniciarTableroActionPerformed
-        Casilla1.setText("");
-        Casilla2.setText("");
-        Casilla3.setText("");
-        Casilla4.setText("");
-        Casilla5.setText("");
-        Casilla6.setText("");
-        Casilla7.setText("");
-        Casilla8.setText("");
-        Casilla9.setText("");
-        tablero.reiniciarPartida();
+         JButton[] botones = {
+        Casilla1, Casilla2, Casilla3, Casilla4, Casilla5, Casilla6, Casilla7, Casilla8, Casilla9
+    };
+        tablero.reiniciarPartida(botones);
         textoTurnoJugador.setText(tablero.getTurnoActual() == Tablero.getJugador1() ? "X" : "O");
     }// GEN-LAST:event_jBReiniciarTableroActionPerformed
 
