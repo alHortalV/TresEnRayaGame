@@ -390,8 +390,8 @@ public class GUI_tablero extends javax.swing.JFrame {
     }
 
     public void crearJugadores() {
-        Jugador jugador1 = new Jugador("X");
-        Jugador jugador2 = new Jugador("O");
+        Jugador jugador1 = new Jugador("X",tablero);
+        Jugador jugador2 = new Jugador("O", tablero);
         // Iniciamos ambos hilos
         jugador1.start();
         jugador2.start();

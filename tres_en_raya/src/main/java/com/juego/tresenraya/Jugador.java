@@ -8,8 +8,9 @@ public class Jugador extends Thread {
     private final String simbolo;
     private Tablero tablero;
 
-    public Jugador(String simbolo) {
+    public Jugador(String simbolo, Tablero tablero) {
         this.simbolo = simbolo;
+        this.tablero = tablero;
     }
 
     public String getSimbolo() {
