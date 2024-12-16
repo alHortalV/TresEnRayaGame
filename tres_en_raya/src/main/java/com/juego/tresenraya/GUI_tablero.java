@@ -41,6 +41,7 @@ public class GUI_tablero extends javax.swing.JFrame {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -61,6 +62,11 @@ public class GUI_tablero extends javax.swing.JFrame {
         textoTurnoJugador = new javax.swing.JLabel();
         logoZaidin = new javax.swing.JLabel();
         jBReiniciarTablero = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        VictoriasJugador2 = new javax.swing.JLabel();
+        VictoriasJugador1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -159,9 +165,9 @@ public class GUI_tablero extends javax.swing.JFrame {
         textoTurnoJugador.setForeground(new java.awt.Color(255, 255, 255));
         textoTurnoJugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoTurnoJugador.setText("X");
-        
-        logoZaidin.setIcon(new javax.swing.ImageIcon("tres_en_raya\\src\\main\\recursos\\imgs\\ieszaidin.png")); // NOI18N
 
+        jBReiniciarTablero.setBackground(new java.awt.Color(154, 204, 119));
+        jBReiniciarTablero.setForeground(new java.awt.Color(51, 79, 83));
         jBReiniciarTablero.setText("Reiniciar Tablero");
         jBReiniciarTablero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,37 +175,78 @@ public class GUI_tablero extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Victorias");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("-");
+
+        VictoriasJugador2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        VictoriasJugador2.setForeground(new java.awt.Color(255, 255, 255));
+        VictoriasJugador2.setText("0");
+
+        VictoriasJugador1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        VictoriasJugador1.setForeground(new java.awt.Color(255, 255, 255));
+        VictoriasJugador1.setText("0");
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/juego/tresenraya/ieszaidin.png"))); // NOI18N
+
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
         panelDatosLayout.setHorizontalGroup(
                 panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelDatosLayout.createSequentialGroup()
-                                .addContainerGap(34, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelDatosLayout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout
+                                                .createSequentialGroup()
+                                                .addComponent(tituloAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(50, 50, 50))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                                 panelDatosLayout.createSequentialGroup()
-                                                        .addComponent(logoZaidin)
-                                                        .addGap(41, 41, 41))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout
-                                                .createSequentialGroup()
-                                                .addGroup(panelDatosLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(tituloAplicacion,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 230,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(textoTurno,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 230,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(17, 17, 17))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout
-                                                .createSequentialGroup()
-                                                .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(113, 113, 113))))
+                                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(103, 103, 103))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(140, 140, 140))
                         .addGroup(panelDatosLayout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(jBReiniciarTablero)
+                                .addGroup(panelDatosLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelDatosLayout.createSequentialGroup()
+                                                .addGap(134, 134, 134)
+                                                .addComponent(VictoriasJugador1)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel2)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(VictoriasJugador2))
+                                        .addGroup(panelDatosLayout.createSequentialGroup()
+                                                .addGap(64, 64, 64)
+                                                .addComponent(textoTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 231,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(logoZaidin)))
+                                .addContainerGap(34, Short.MAX_VALUE))
+                        .addGroup(panelDatosLayout.createSequentialGroup()
+                                .addGroup(
+                                        panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(panelDatosLayout.createSequentialGroup()
+                                                        .addGap(96, 96, 96)
+                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(panelDatosLayout.createSequentialGroup()
+                                                        .addGap(107, 107, 107)
+                                                        .addComponent(jBReiniciarTablero,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 126,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)));
         panelDatosLayout.setVerticalGroup(
                 panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,17 +254,41 @@ public class GUI_tablero extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(tituloAplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 62,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(logoZaidin)
-                                .addGap(18, 18, 18)
-                                .addComponent(textoTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 38,
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(155, 155, 155)
-                                .addComponent(jBReiniciarTablero)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addGroup(panelDatosLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelDatosLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39,
+                                                        Short.MAX_VALUE)
+                                                .addComponent(logoZaidin)
+                                                .addGap(326, 326, 326))
+                                        .addGroup(panelDatosLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(textoTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 38,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(textoTurnoJugador, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel1)
+                                                .addGap(6, 6, 6)
+                                                .addGroup(panelDatosLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(VictoriasJugador1,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 19,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel2)
+                                                        .addComponent(VictoriasJugador2,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 19,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jBReiniciarTablero,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 32,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(38, 38, 38)))));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -227,7 +298,7 @@ public class GUI_tablero extends javax.swing.JFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 524,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87,
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35,
                                         Short.MAX_VALUE)
                                 .addComponent(panelDatos, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)));
@@ -237,7 +308,7 @@ public class GUI_tablero extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 458,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(82, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(panelDatos, javax.swing.GroupLayout.DEFAULT_SIZE,
                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
@@ -256,9 +327,9 @@ public class GUI_tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBReiniciarTableroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBReiniciarTableroActionPerformed
-         JButton[] botones = {
-        Casilla1, Casilla2, Casilla3, Casilla4, Casilla5, Casilla6, Casilla7, Casilla8, Casilla9
-    };
+        JButton[] botones = {
+                Casilla1, Casilla2, Casilla3, Casilla4, Casilla5, Casilla6, Casilla7, Casilla8, Casilla9
+        };
         tablero.reiniciarPartida(botones);
         textoTurnoJugador.setText(tablero.getTurnoActual() == Tablero.getJugador1() ? "X" : "O");
     }// GEN-LAST:event_jBReiniciarTableroActionPerformed
@@ -339,6 +410,10 @@ public class GUI_tablero extends javax.swing.JFrame {
         } else {
             textoTurnoJugador.setText("O");
         }
+        if(tablero.isPartidaTerminada()){
+            VictoriasJugador1.setText(tablero.getVictoriasJugador1() + "");
+            VictoriasJugador2.setText(tablero.getVictoriasJugador2() + "");
+        }
     }
 
     /**
@@ -386,7 +461,7 @@ public class GUI_tablero extends javax.swing.JFrame {
     }
 
     public void crearJugadores() {
-        Jugador jugador1 = new Jugador("X",tablero);
+        Jugador jugador1 = new Jugador("X", tablero);
         Jugador jugador2 = new Jugador("O", tablero);
         // Iniciamos ambos hilos
         jugador1.start();
@@ -415,7 +490,12 @@ public class GUI_tablero extends javax.swing.JFrame {
     private javax.swing.JButton Casilla7;
     private javax.swing.JButton Casilla8;
     private javax.swing.JButton Casilla9;
+    private javax.swing.JLabel VictoriasJugador1;
+    private javax.swing.JLabel VictoriasJugador2;
     private javax.swing.JButton jBReiniciarTablero;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logoZaidin;
     private javax.swing.JPanel panelDatos;
